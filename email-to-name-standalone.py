@@ -7,13 +7,13 @@ def EmailToName(email):
 
     # Check the length of the email once more
     if len(email) < 10 or len(email) > 60:
-        return jsonify({'status': 'error'}, {'message': 'Email did not pass the length validation min 10 char max 60 char.'}), 403
+        return ({'status': 'error'}, {'message': 'Email did not pass the length validation min 10 char max 60 char.'})
 
     # Syntax check with regex
     email_regex = '^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$'
     match = re.match(email_regex, str(email))
     if match == None:
-        return jsonify({'status': 'error'}, {'message': 'Email did not pass the regex validation.'}), 403
+        return ({'status': 'error'}, {'message': 'Email did not pass the regex validation.'})
 
     # Extract the username from the validated email
     splitAddress = email.split('@')
@@ -25,7 +25,7 @@ def EmailToName(email):
     # If the username is longer than 25 characters, again rather unlikely we can guess a name. Also, more processing and longer script execution = # no good.
     # So if the email username fails to pass this validation the script returns error.
     if (len(username_cleaned) < 4) or (len(username_cleaned) > 25):
-        return jsonify({'status': 'error'}, {'message': 'The username extracted from the email did not pass the length validation min 4 char max 25 char'}), 403
+        return ({'status': 'error'}, {'message': 'The username extracted from the email did not pass the length validation min 4 char max 25 char.'})
 
     # As the email has passed the varifications above, we now load a list of names in to memory, from which we're do our matching of email
     # username strings.
