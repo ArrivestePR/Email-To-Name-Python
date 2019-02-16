@@ -1,4 +1,4 @@
-# Email-To-Name-Python
+# Email To Name Python (Extract Names from Email Addresses Using Python v2 or v3).
 A simple python script that parses first names and last names from emails (and that's not all folks, an extra script that's a ready to go flask-wrapped web API you can get running in minutes - find this in the "email-to-name-python-flask" folder that you can use to parse names from emails via a convenient web API... And that's not all folks! A docker app that will launch the flask wrapped email to name parsing python script and allow you to have your own email to name web API running in a docker container in minutes - find this in the "email-to-name-dockerized" folder).
 
 # How does this script work?
